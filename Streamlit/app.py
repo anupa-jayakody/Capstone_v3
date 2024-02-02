@@ -467,7 +467,7 @@ def recommender_text(text_input):
     #text data
 
     text_data= recipes['text_data']
-    print('before parser:', text_data)
+    
 
     text_data_cleaned= parser_text(text_data)
     
@@ -546,7 +546,7 @@ def recommender_text(text_input):
 #recommending logic
 
 st.divider()
-st.subheader('Search by Keygitwords')
+st.subheader('Search by Keywords')
 
 #user input
 
