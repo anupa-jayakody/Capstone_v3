@@ -229,27 +229,27 @@ def recommender(user_input):
 
 
 
-            recommendation= pd.DataFrame( columns=['Title','Ingredients', 'Category','Calories', 'Time', 'Score'] ) #dataframe with columns
+            recommendation= pd.DataFrame( columns=['Name','Ingredients', 'Category','Calories', 'Time', 'Score'] ) #dataframe with columns
 
     
             for i in top_recipes: #defining the data for each recommendation
 
             
-                title = recipes['Name'].iloc[i]
-                calories = '{:.0f}'.format(recipes['Calories'].iloc[i])
-                time= recipes['TotalTime'].iloc[i]
-                category = recipes['RecipeCategory'].iloc[i]
-                ingredients = recipes['RecipeIngredientParts'].iloc[i]
-                score= '{:.0f}'.format(cosine_similarities[0][i])
+                Name = recipes['Name'].iloc[i]
+                Calories = '{:.0f}'.format(recipes['Calories'].iloc[i])
+                Time= recipes['TotalTime'].iloc[i]
+                Category = recipes['RecipeCategory'].iloc[i]
+                Ingredients = recipes['RecipeIngredientParts'].iloc[i]
+                Score= '{:.0f}'.format(cosine_similarities[0][i])
                 #instructions= recipes['RecipeInstructions'].iloc[i]
                 recommendation = recommendation.append(
-                                {'title': title, 
-                                'ingredients': ingredients,
-                                'category' : category, 
-                                'calories' : calories,
+                                {'Name': Name, 
+                                'Ingredients': Ingredients,
+                                'Category' : Category, 
+                                'Calories' : Calories,
                                 #'instructions': instructions,
-                                'time' : time, 
-                                'score': score},
+                                'Time' : Time, 
+                                'Score': Score},
                                      ignore_index=True)
                 
     return recommendation  
@@ -271,7 +271,7 @@ left_column, right_column = st.columns(2)
 with left_column:
 
     st.title('Flavor Fuze')
-    st.markdown('#### Elevate your Culinary experience with Flavour Fuze - where every dish becomes and adventure')
+    st.markdown('#### Elevate your Culinary experience with Flavor Fuze - where every dish becomes and adventure')
     st.caption('By Anupa Jayakody')
 
 with right_column:
@@ -514,21 +514,21 @@ def recommender_text(text_input):
             for i in top_recipes: #defining the data for each recommendation
 
             
-                Title = recipes['Name'].iloc[i]
+                Name = recipes['Name'].iloc[i]
                 Calories = '{:.0f}'.format(recipes['Calories'].iloc[i])
                 Time= recipes['TotalTime'].iloc[i]
                 Ingredients = recipes['RecipeIngredientParts'].iloc[i]
                 Category = recipes['RecipeCategory'].iloc[i]
-                keywords = recipes['Keywords'].iloc[i]
-                score= '{:.0f}'.format(cosine_similarities_text[0][i])
+                Keywords = recipes['Keywords'].iloc[i]
+                Score= '{:.0f}'.format(cosine_similarities_text[0][i])
                 recommendation = recommendation.append(
-                                {'Name': title, 
-                                'Ingredients': ingredients, 
-                                'Category': category,
-                                'Keywords': keywords,
-                                'Calories' : calories, 
-                                'Time' : time, 
-                                'Score': score}, 
+                                {'Name': Name, 
+                                'Ingredients': Ingredients, 
+                                'Category': Category,
+                                'Keywords': Keywords,
+                                'Calories' : Calories, 
+                                'Time' : Time, 
+                                'Score': Score}, 
                                      ignore_index=True)
 
 
@@ -562,7 +562,8 @@ if st.button('Lets key-in !!'):
 
         
         st.table(recommend_recipes)
-    
+        st.empty()
+
     else:
 
-        st.write('no recommendations today')
+        st.write('I am sorry, no good recommendations today')
