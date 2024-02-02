@@ -514,11 +514,11 @@ def recommender_text(text_input):
             for i in top_recipes: #defining the data for each recommendation
 
             
-                title = recipes['Name'].iloc[i]
-                calories = '{:.0f}'.format(recipes['Calories'].iloc[i])
-                time= recipes['TotalTime'].iloc[i]
-                ingredients = recipes['RecipeIngredientParts'].iloc[i]
-                category = recipes['RecipeCategory'].iloc[i]
+                Title = recipes['Name'].iloc[i]
+                Calories = '{:.0f}'.format(recipes['Calories'].iloc[i])
+                Time= recipes['TotalTime'].iloc[i]
+                Ingredients = recipes['RecipeIngredientParts'].iloc[i]
+                Category = recipes['RecipeCategory'].iloc[i]
                 keywords = recipes['Keywords'].iloc[i]
                 score= '{:.0f}'.format(cosine_similarities_text[0][i])
                 recommendation = recommendation.append(
