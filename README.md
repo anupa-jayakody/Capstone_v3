@@ -22,7 +22,7 @@ Problem Area
                 - Based on both keywords & ingredients combined
         2. Predict the rating for the recipe 
 
-    **My original scope was to only give vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
+    **My original scope was to only give only vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
 
 Data Science approach
 
@@ -147,7 +147,7 @@ Pre-Processing
 Modeling
 
 
-Solution 1
+Solution 1 - Coontent Based Filtering
     I used below word embedding models for the recommendation working
         - TFIDF vectorisation
         - Word2Vec vectorisation
@@ -168,7 +168,7 @@ Solution 1
     I selected the Word2Vec model here for my next steps. Both Pre-processing and Modeling steps were done for both search options (Ingredient and Keywords) 
 
 
-Solution 2
+Solution 2- Colloborative Based Filtering
 
     FunkSVD was used to get the predicted ratings for each recipe
     Actual vs Predicted was compared with a highest FCP of 0.64 for the test data
