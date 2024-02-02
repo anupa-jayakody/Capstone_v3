@@ -271,13 +271,13 @@ left_column, right_column = st.columns(2)
 with left_column:
 
     st.title('Flavor Fuze')
-    st.markdown('###Elevate your Culinary experience with Flavour Fuze - where every dish becomes and adventure')
+    st.markdown('#### Elevate your Culinary experience with Flavour Fuze - where every dish becomes and adventure')
     st.caption('By Anupa Jayakody')
 
 with right_column:
 
     lottiefile = requests.get('https://lottie.host/dc1b8d65-0ec5-4ca6-9959-c35c8842809b/picTTTEeVt.json', verify=False)
-    st_lottie(lottiefile.json())
+    st_lottie(lottiefile.json(), height=300, width=300)
 
 
 st.divider()
@@ -318,7 +318,7 @@ if st.button('Lets ing-in !!'):
 @st.cache_data
 def load_model_text():
 
-    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op2).bin')
+    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
         
     return phrases_model #return the list
 
