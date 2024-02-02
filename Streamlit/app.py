@@ -270,8 +270,8 @@ left_column, right_column = st.columns(2)
 
 with left_column:
 
-    st.title('Flavour Fuze')
-    st.subheader('Elevate your Culinary experience with Flavour Fuze - where every dish becomes and adventure')
+    st.title('Flavor Fuze')
+    st.markdown('###Elevate your Culinary experience with Flavour Fuze - where every dish becomes and adventure')
     st.caption('By Anupa Jayakody')
 
 with right_column:
@@ -293,7 +293,7 @@ if st.button('Lets ing-in !!'):
 
     #recipes= load_data('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE/Datasets/recipe_sample_3.csv')
 
-    loading_image= st_lottie(requests.get('https://lottie.host/9e4a2516-2bd2-4f3a-97dc-e13a1c8b17d3/WsU810K1aZ.json',verify=False).json())
+    loading_image= st_lottie((requests.get('https://lottie.host/9e4a2516-2bd2-4f3a-97dc-e13a1c8b17d3/WsU810K1aZ.json',verify=False).json()), height=100, width=100)
 
 
     recommend_recipes= recommender(user_ingredients)
@@ -469,11 +469,10 @@ def recommender_text(text_input):
     text_data= recipes['text_data']
     print('before parser:', text_data)
 
-    #text_data_cleaned= parser_text(text_data)
+    text_data_cleaned= parser_text(text_data)
     
 
-    text_data_cleaned= recipes['TextDataCleaned']
-
+    
     print('after parser:', text_data_cleaned[0])
     
 
@@ -555,13 +554,13 @@ keyword_input= st.text_input('Do you want to search by a keyword today??')
 
 if st.button('Lets key-in !!'):
 
-    loading_image= st_lottie((requests.get('https://lottie.host/9e4a2516-2bd2-4f3a-97dc-e13a1c8b17d3/WsU810K1aZ.json',verify=False).json()), height=100, width=100 , )
+    loading_image= st_lottie((requests.get('https://lottie.host/9e4a2516-2bd2-4f3a-97dc-e13a1c8b17d3/WsU810K1aZ.json',verify=False).json()), height=100, width=100 )
 
     recommend_recipes= recommender_text(keyword_input)
     
     if recommend_recipes is not None and not recommend_recipes.empty:
 
-        loading_image.empty()
+        
         st.table(recommend_recipes)
     
     else:
