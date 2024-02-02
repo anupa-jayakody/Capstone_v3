@@ -229,7 +229,7 @@ def recommender(user_input):
 
 
 
-            recommendation= pd.DataFrame( columns=['title','ingredients', 'category','calories', 'time', 'score'] ) #dataframe with columns
+            recommendation= pd.DataFrame( columns=['Title','Ingredients', 'Category','Calories', 'Time', 'Score'] ) #dataframe with columns
 
     
             for i in top_recipes: #defining the data for each recommendation
