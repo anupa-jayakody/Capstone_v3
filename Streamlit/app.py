@@ -46,9 +46,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 def load_data():
 
 
-    #recipefile = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/recipes_streamlit.csv')
-    #recipes = pd.read_csv(recipefile)
-    recipes = pd.read_csv('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE/Datasets/recipes_streamlit.csv')
+    recipes = pd.read_csv('../Docs/Datasets/recipes_streamlit.csv')
     return recipes
 
 
@@ -157,9 +155,8 @@ def parser_ing(input_keys):
 @st.cache_data
 def model():
     
-    # op1bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op1).bin')
-    # phrases_model= Word2Vec.load(op1bin)
-    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
+    
+    phrases_model= Word2Vec.load('../Models/Word2Vec/phrases_model_new(op1).bin')
         
     return phrases_model #return the list
 
@@ -305,7 +302,7 @@ if st.button('Lets ing-in !!'):
     
     else:
 
-        st.write('no recommendations today')
+        st.write('I am sorry, I couldnt find you a good reipce today')
 
 
 
@@ -319,9 +316,7 @@ if st.button('Lets ing-in !!'):
 @st.cache_data
 def load_model_text():
 
-    # op2bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op2).bin')
-    # phrases_model= Word2Vec.load(op2bin)
-    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
+    phrases_model= Word2Vec.load('../Models/Word2Vec/phrases_model_new(op2).bin')
         
     return phrases_model #return the list
 
@@ -391,16 +386,7 @@ def parser_user_text(input_keys):
 
 
 #defining measuring units
-
-    measurment_url= 'https://en.wikibooks.org/wiki/Cookbook:Units_of_measurement' #data source
-
-
-    measuring_words= ['ml', 'mL', 'milliliter', 'millilitre', 'cc' , 'cubic centimeter', 'l', 'L', 'liter', 'litre', 'dl', 'dL', 'deciliter', 'decilitre', 'teaspoon', 't' , 'tsp.',
-'tablespoon' , 'T', 'tbl', 'tbs', 'tbsp', 'fluid ounce', 'fl oz',  'gill', 'cup',  'c', 'pint', 'p', 'pt', 'fl pt',
-'quart', 'q', 'qt', 'fl qt', 'gallon' , 'g' , 'gal' , 'g', 'milligram', 'milligramme', 'g' , 'gram' , 'gramme', 'kg',
-'kilogram', 'kilogramme', 'pound', 'lb', 'ounce', 'oz', 'mm', 'millimeter', 'millimetre', 'cm' , 'centimeter', 'centimetre', 'm' , 'meter',
-'metre', 'inch', 'in', 'yard', '°C' , 'degree celsius','°F' ,'Farenheit', 'tsp']
-    
+   
     cleaned_ingredients_all_recipes = []
 
 
@@ -571,4 +557,4 @@ if st.button('Lets key-in !!'):
 
     else:
 
-        st.write('I am sorry, no good recommendations today')
+        st.write('I am sorry, I couldnt find you a good reipce today')
