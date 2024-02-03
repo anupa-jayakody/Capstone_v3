@@ -22,6 +22,7 @@ from nltk.stem import WordNetLemmatizer
 
 #  nltk stopwords
 nltk.download('stopwords')
+nltk.download('wordnet')
 from nltk.corpus import stopwords
 
 #defining the stop words
