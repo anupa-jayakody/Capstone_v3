@@ -3,16 +3,16 @@
 Project Overview 
 
 
-    The end goal of the project is to to satisfy your hunger buds by giving  a recipe within a few seconds to match your need.  
+    The end goal of the project is to to satisfy your hunger buds by giving  a recipe within a few seconds to match your needs.  
     The scope of the project will be to develop a recipe recommender system that will help the user choose a recipe that they could try on their own. 
 
 
 
 Problem Area  
 
-    With the vast majority of the people being non-vegans, most of the recipe content found on different channels/sites are not vegan friendly. Hence vegans usually strugggle to find recipes tailored to thier liking and often end up needing to find substitutes to prepare food on thier own with no proper following, which is not a convenient solution when they are in need of a quick preparation.
+    With the vast majority of the people being non-vegans, most of the recipe content found on different channels/sites is not vegan-friendly. Hence vegans usually struggle to find recipes tailored to their liking and often end up needing to find substitutes to prepare food on their own with no proper following, which is not a convenient solution when they need a quick preparation.
 
-    More importantly, with everyone seeking easy get away solutions, people need a quick solution to a recipe when they plan to prepare food. 
+    More importantly, with everyone seeking easy getaway solutions, people need a quick solution to a recipe when they plan to prepare food. 
 
     So the project will focus on delivering 2 solutions;  
 
@@ -22,9 +22,9 @@ Problem Area
                 - Based on both keywords & ingredients combined
         2. Predict the rating for the recipe 
 
-    **My original scope was to only give only vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
+    **My original scope was to only give vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
 
-Data Science approach
+Data Science Approach
 
 
 Solution 1
@@ -32,17 +32,17 @@ Solution 1
     Option 1- Search by Ingredients
 
         1. User will input a n number of ingredients that they have on hand right now or the ingredients that they specifically want to be included in the recipe. 
-        2. Solution will check the database of recipes and match the available reicpes  ingredients with the input ingredients.
-        3. It will then recommend a specific number of recipes to the user based on the similarity between the input ingredients and the database reicpe ingredients using an approproate similarity matrix.
-        4. User then can select the recipe that they like and follow the steps to prepare it and/or refer to the web link to get more details
+        2. The solution will check the database of recipes and match the available recipe  ingredients with the input ingredients.
+        3. It will then recommend a specific number of recipes to the user based on the similarity between the input ingredients and the database recipe ingredients using an appropriate similarity matrix.
+        4. The user then selects the recipe that they like and follows the steps to prepare it and/or refers to the web link to get more details
 
 
     Option 1- Search by Ingredients
 
-        1. User will input a keyword to search for in the recipe in the recipe. 
-        2. Solution will check the database of recipes and match the available reicpes  keywords/category/name with the input key.
-        3. It will then recommend a specific number of recipes to the user based on the similarity between the input ingredients and the database reicpe ingredients using an approproate similarity matrix.
-        4. User then can select the recipe that they like and follow the steps to prepare it and/or refer to the web link to get more details
+        1. The user will input a keyword to search for in the recipe in the recipe. 
+        2. The solution will check the database of recipes and match the available recipe  keywords/category/name with the input key.
+        3. It will then recommend a specific number of recipes to the user based on the similarity between the input ingredients and the database recipe ingredients using an appropriate similarity matrix.
+        4. The user then select the recipe that they like and follows the steps to prepare it and/or refers to the web link to get more details
 
 
 Solution 2
@@ -53,21 +53,21 @@ Solution 2
 
 Impact of the solution  
 
-    - Enable any individual to find a recipe within 1-2  mins to their liking, to suit their ingredent preferences or what they have on hand making it convinient to find a recipe matching to thier need at that point. 
+    - Enable any individual to find a recipe within 1-2  mins to their liking, to suit their ingredient preferences or what they have on hand making it convenient to find a recipe matching their need at that point. 
     
     - Provide generic recommendations to which the individual might not have any ingredient readily available. 
     
-    By giving a recommendation considering above, he will not need to read through the entire recipe first to decide whether it will be a good try for him at that point as the recommendations will be given based on his preferences. 
+    By giving a recommendation considering the above, he will not need to read through the entire recipe first to decide whether it will be a good try for him at that point as the recommendations will be given based on his preferences. 
 
 
 
 Dataset  
 
-    Capstone scope of the project is to develop the solution based on a dataset of ~520000 recipes and ~1401982 reviews extracted from food.com.(kaggle) and  So the solution developed will be from this dataset.
+    The capstone scope of the project is to develop the solution based on a dataset of ~520000 recipes and ~1401982 reviews extracted from food.com.(Kaggle) and  So the solution developed will be from this dataset.
 
-    [But I wish to extend this to a live extracting of recipes so that the recipe database will be much wider. I also plan to add an approximate cost for each recipe based on the market cost for each ingredient so that that the user can refine their selection based on the budget criteria as well.] 
+    [But I wish to extend this to a live extracting of recipes so that the recipe database will be much wider. I also plan to add an approximate cost for each recipe based on the market cost for each ingredient so that the user can refine their selection based on the budget criteria as well.] 
 
-    Dataset includes below columns  
+    The dataset includes below columns: 
 
         - RecipeId 
         - Name 
@@ -122,13 +122,13 @@ Data Cleaning
         - Correlation between length of titles and ingredients 
         - Recipe rating distribution
         - Correlation of different nutrition contents
-        - Distribution of recipes by nutrition contents 
+        - Distribution of recipes by nutritional contents 
         - Vegan recipes distribution
 
 
 Pre-Processing 
 
-    When analysing data, it was visible that the ingredients column has many words that are not real ingredients. Since this is the column we wil use for our modeling, I removed those unnecessary words for the analysis. Techniques used here are; 
+    When analysing data, it was visible that the ingredients column has many words that are not real ingredients. Since this is the column we will use for our modeling, I removed those unnecessary words for the analysis. Techniques used here are; 
 
 
         - Tokenization
@@ -138,17 +138,17 @@ Pre-Processing
         - Removing symbols/characters/numbers
         - Lower casing
 
-    In Sprint 1, I seperated each ingredient to individual tokens and analysed, however it was visible that some ingredients need to be maintained in the original form such as  red pepper ,  bell pepper . Therefore, I improved my pre processing steps to incorporate this. Further more, one function was created combining all the steps. 
+    In Sprint 1, I separated each ingredient to individual tokens and analysed them, however, it was visible that some ingredients need to be maintained in the original form such as  red pepper,  and bell pepper. Therefore, I improved my pre-processing steps to incorporate this. Furthermore, one function was created by combining all the steps. 
 
-    A similar process was used to preprocess Title and RecipeInstructions columns too.
+    A similar process was used to preprocess the Title and RecipeInstructions columns too.
   
 
 
 Modeling
 
 
-Solution 1 - Coontent Based Filtering
-    I used below word embedding models for the recommendation working
+Solution 1 - Content-Based Filtering
+    I used the below word embedding models for the recommendation working
         - TFIDF vectorisation
         - Word2Vec vectorisation
 
@@ -168,10 +168,10 @@ Solution 1 - Coontent Based Filtering
     I selected the Word2Vec model here for my next steps. Both Pre-processing and Modeling steps were done for both search options (Ingredient and Keywords) 
 
 
-Solution 2- Colloborative Based Filtering
+Solution 2- Collaborative Based Filtering
 
     FunkSVD was used to get the predicted ratings for each recipe
-    Actual vs Predicted was compared with a highest FCP of 0.64 for the test data
+    Actual vs Predicted was compared with the highest FCP of 0.64 for the test data
 
 
 
@@ -186,7 +186,7 @@ Next steps
 
         - Speed up the recommendations (Currently it takes ~1min for app processing)
         - Give a URL to directly connect with the source recipe for the user to follow along easily
-        - Convert the datasource to a dynamic API pulling data from web
+        - Convert the data source to a dynamic API pulling data from the web
         - Create a mobile application
 
 
