@@ -46,7 +46,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 def load_data():
 
 
-    recipes = pd.read_csv('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/Capstone_New/Docs/recipes_streamlit.csv')
+    recipefile = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/recipes_streamlit.csv')
+    recipes = pd.read_csv(recipefile)
+    # recipes = pd.read_csv('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/Capstone_New/Docs/recipes_streamlit.csv')
     return recipes
 
 
@@ -155,7 +157,9 @@ def parser_ing(input_keys):
 @st.experimental_memo
 def model():
     
-    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
+    op1bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op1).bin')
+    phrases_model= Word2Vec.load(op1bin)
+    # phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
         
     return phrases_model #return the list
 
@@ -317,7 +321,9 @@ if st.button('Lets ing-in !!'):
 @st.experimental_memo
 def load_model_text():
 
-    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
+    op2bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op2).bin')
+    phrases_model= Word2Vec.load(op2bin)
+    # phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
         
     return phrases_model #return the list
 
