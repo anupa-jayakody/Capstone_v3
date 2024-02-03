@@ -48,7 +48,7 @@ Option 2- Search by Keywords
 
 Option 3- Search by Ingredients & Keywords
 
-**Solution 2- Collaborative Based Filtering**
+**Solution 2- Memory Based Filtering**
 
 Predict the recipe rating. This will enable the repeating users to be recommended with a recipe based on the item-item similarity (rating). In item-item filtering, we say that if two items are similar, and a user ranked one of those items, that user's rating of the other item will be similar.
 
@@ -171,10 +171,10 @@ Below are the steps used
 I selected the Word2Vec model here for my next steps. Both Pre-processing and Modeling steps were done for both search options (Ingredient and Keywords) 
 
 
-**Solution 2- Collaborative Based Filtering**
+**Solution 2- Memory Based Filtering**
 
-FunkSVD was used to get the predicted ratings for each recipe
-Actual vs Predicted was compared with the highest FCP of 0.64 for the test data
+- FunkSVD was used to get the predicted ratings for each recipe
+- Actual vs Predicted was compared with the highest FCP of 0.64 for the test data
 
 
 
@@ -185,9 +185,9 @@ Web application & mobile application
 
 
 
-**Next steps**
+**For future work**
 
-- Speed up the recommendations (Currently it takes ~1min for app processing)
+- Speed up the recommendations (Currently it takes ~1min for the app processing)
 - Give a URL to directly connect with the source recipe for the user to follow along easily
 - Convert the data source to a dynamic API pulling data from the web
 - Create a mobile application
