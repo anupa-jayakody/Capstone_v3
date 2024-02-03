@@ -192,8 +192,6 @@ def recommender(user_input):
     ingredients_cleaned = parser_ing(ingredients)
     print(ingredients_cleaned[0])
 
-    
-
 
 # mean Embeddings for User Input
     user_mean_vector =np.mean([phrases_model.wv[ingredient] for ingredient in user_input_2 if ingredient in phrases_model.wv] or [np.zeros(200)], axis=0)
