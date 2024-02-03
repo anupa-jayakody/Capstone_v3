@@ -41,7 +41,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 #load data
 
-@st.cache_data
+@st.experimental_memo
 def load_data():
 
 
@@ -51,7 +51,7 @@ def load_data():
 
 #parser ingredients input.
 
-@st.cache_data
+@st.experimental_memo
 def parser(input_keys):
 
     remove_= { 'oil', 'salt', 'pepper'}
@@ -87,7 +87,7 @@ def parser(input_keys):
 
 
 #parser ingredients
-@st.cache_data
+@st.experimental_memo
 def parser_ing(input_keys):
 
     # Defining measuring units
@@ -151,7 +151,7 @@ def parser_ing(input_keys):
 
 
 #parser
-@st.cache_data
+@st.experimental_memo
 def model():
     
     phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
@@ -160,7 +160,7 @@ def model():
 
 
 #parser recommender
-@st.cache_data
+@st.experimental_memo
 def recommender(user_input):
 
     print("before paser : ",user_input)
@@ -313,7 +313,7 @@ if st.button('Lets ing-in !!'):
         
 
 #load data
-@st.cache_data
+@st.experimental_memo
 def load_model_text():
 
     phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
@@ -325,7 +325,7 @@ def load_model_text():
 
 #parser text input
 
-@st.cache_data
+@st.experimental_memo
 def parser_text(input_keys): #function
 
     # Defining measuring units
@@ -381,7 +381,7 @@ def parser_text(input_keys): #function
 
 #parser user text 
 
-@st.cache_data
+@st.experimental_memo
 def parser_user_text(input_keys):
 
 
@@ -441,7 +441,7 @@ def parser_user_text(input_keys):
 
 #recommender
 
-@st.cache_data
+@st.experimental_memo
 def recommender_text(text_input):
 
     recipes= load_data()
