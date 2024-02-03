@@ -1,5 +1,17 @@
 # Readme
 
+**Project consists of below**
+
+
+- EDA & Preprocessing                 (Notebooks/EDA & Preprocessing.ipynb)
+- Solution 1- Modeling (TFIDF)        (Notebooks/Solution 1- Modeling (TFIDF).ipynb)
+- Solution 1- Modeling (Word2Vec)     (Notebooks/Solution 1- Modeling (Word2Vec).ipynb)
+- Solution 2- Modeling (FunkSVD)      (Notebooks/Solution 2- Modeling (FunkSVD).ipynb)
+- app. py                             (Streamlit/app.py)
+- Streamlit App Video                  (Streamlit/app.py)
+- Anupa_Jayakody_Sprint3              (Docs/Anupa_Jayakody_Sprint3.pdf)
+
+
 **Project Overview**
 
 
