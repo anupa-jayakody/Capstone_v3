@@ -462,9 +462,9 @@ def recommender_text(text_input):
     
 
     
-    print('after parser:', text_data_cleaned[0])
-    
+    print('after parser :', text_data_cleaned[0])
 
+    
 
 
 
