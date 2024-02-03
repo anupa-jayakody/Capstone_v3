@@ -42,19 +42,19 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 #load data
 
-@st.experimental_memo
+@st.cache_data
 def load_data():
 
 
-    recipefile = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/recipes_streamlit.csv')
-    recipes = pd.read_csv(recipefile)
-    # recipes = pd.read_csv('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/Capstone_New/Docs/recipes_streamlit.csv')
+    #recipefile = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/recipes_streamlit.csv')
+    #recipes = pd.read_csv(recipefile)
+    recipes = pd.read_csv('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE/Datasets/recipes_streamlit.csv')
     return recipes
 
 
 #parser ingredients input.
 
-@st.experimental_memo
+@st.cache_data
 def parser(input_keys):
 
     remove_= { 'oil', 'salt', 'pepper'}
@@ -90,7 +90,7 @@ def parser(input_keys):
 
 
 #parser ingredients
-@st.experimental_memo
+@st.cache_data
 def parser_ing(input_keys):
 
     # Defining measuring units
@@ -154,18 +154,18 @@ def parser_ing(input_keys):
 
 
 #parser
-@st.experimental_memo
+@st.cache_data
 def model():
     
-    op1bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op1).bin')
-    phrases_model= Word2Vec.load(op1bin)
-    # phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
+    # op1bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op1).bin')
+    # phrases_model= Word2Vec.load(op1bin)
+    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE-GIT/CAPSTONE_NEW/Models/phrases_model_new(op1).bin')
         
     return phrases_model #return the list
 
 
 #parser recommender
-@st.experimental_memo
+@st.cache_data
 def recommender(user_input):
 
     print("before paser : ",user_input)
@@ -245,15 +245,14 @@ def recommender(user_input):
                 Ingredients = recipes['RecipeIngredientParts'].iloc[i]
                 Score= '{:.0f}'.format(cosine_similarities[0][i])
                 #instructions= recipes['RecipeInstructions'].iloc[i]
-                recommendation = recommendation.append(
-                                {'Name': Name, 
-                                'Ingredients': Ingredients,
-                                'Category' : Category, 
-                                'Calories' : Calories,
-                                #'instructions': instructions,
-                                'Time' : Time, 
-                                'Score': Score},
-                                     ignore_index=True)
+                recommendation = pd.concat([recommendation,pd.DataFrame(
+                                    {'Name': [Name], 
+                                    'Ingredients': [Ingredients], 
+                                    'Category' : [Category],
+                                    'Calories': [Calories], 
+                                     'Time': [Time],
+                                     'Score': [Score]})], 
+                                        ignore_index=True)
                 
     return recommendation  
 
@@ -294,7 +293,6 @@ user_ingredients= st.text_input('Do you have some ingredients and you want to se
 
 if st.button('Lets ing-in !!'):
 
-    #recipes= load_data('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION/CAPSTONE/Datasets/recipe_sample_3.csv')
 
     loading_image= st_lottie((requests.get('https://lottie.host/9e4a2516-2bd2-4f3a-97dc-e13a1c8b17d3/WsU810K1aZ.json',verify=False).json()), height=100, width=100)
 
@@ -318,12 +316,12 @@ if st.button('Lets ing-in !!'):
         
 
 #load data
-@st.experimental_memo
+@st.cache_data
 def load_model_text():
 
-    op2bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op2).bin')
-    phrases_model= Word2Vec.load(op2bin)
-    # phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
+    # op2bin = requests.get('https://pythonstuff.blob.core.windows.net/capstone-files/phrases_model_new(op2).bin')
+    # phrases_model= Word2Vec.load(op2bin)
+    phrases_model= Word2Vec.load('C:/Users/e312995/OneDrive - WESCO DISTRIBUTION/Documents/PERSONAL/BRAINSTATION//CAPSTONE/Models/phrases_model_new(op2).bin')
         
     return phrases_model #return the list
 
@@ -332,7 +330,7 @@ def load_model_text():
 
 #parser text input
 
-@st.experimental_memo
+@st.cache_data
 def parser_text(input_keys): #function
 
     # Defining measuring units
@@ -388,7 +386,7 @@ def parser_text(input_keys): #function
 
 #parser user text 
 
-@st.experimental_memo
+@st.cache_data
 def parser_user_text(input_keys):
 
 
@@ -448,7 +446,7 @@ def parser_user_text(input_keys):
 
 #recommender
 
-@st.experimental_memo
+@st.cache_data
 def recommender_text(text_input):
 
     recipes= load_data()
@@ -526,15 +524,17 @@ def recommender_text(text_input):
                 Category = recipes['RecipeCategory'].iloc[i]
                 Keywords = recipes['Keywords'].iloc[i]
                 Score= '{:.0f}'.format(cosine_similarities_text[0][i])
-                recommendation = recommendation.append(
-                                {'Name': Name, 
-                                'Ingredients': Ingredients, 
-                                'Category': Category,
-                                'Keywords': Keywords,
-                                'Calories' : Calories, 
-                                'Time' : Time, 
-                                'Score': Score}, 
-                                     ignore_index=True)
+
+                recommendation = pd.concat([recommendation,pd.DataFrame({
+                                    'Name': [Name], 
+                                    'Ingredients': [Ingredients], 
+                                    'Category' : [Category],
+                                    'Keywords' : [Keywords], 
+                                    'Calories': [Calories], 
+                                    'Time' : [Time],
+                                    'Score': [Score]
+                                    })], 
+                                        ignore_index=True)
 
 
 
