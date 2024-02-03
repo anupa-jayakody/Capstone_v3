@@ -196,7 +196,7 @@ def recommender(user_input):
 
 
 # mean Embeddings for User Input
-    user_mean_vector =np.mean([phrases_model.wv[ingredient] for ingredient in user_input_2 if ingredient in phrases_model.wv] or [np.zeros(200)], axis=0)
+    user_mean_vector =np.mean([phrases_model.wv[ingredient] for ingredient in user_input_2 if ingredient in phrases_model.wv] or [np.zeros(100)], axis=0)
 
 
 
@@ -208,7 +208,7 @@ def recommender(user_input):
     else:
 
     # mean ingredient vectors for each recipe
-        recipe_vectors = [np.mean([phrases_model.wv[sub_ingredient] for sub_ingredient in ingredient if sub_ingredient in phrases_model.wv] or [np.zeros(200)], axis=0) for ingredient in ingredients_cleaned]
+        recipe_vectors = [np.mean([phrases_model.wv[sub_ingredient] for sub_ingredient in ingredient if sub_ingredient in phrases_model.wv] or [np.zeros(100)], axis=0) for ingredient in ingredients_cleaned]
 
 
 
@@ -449,7 +449,7 @@ def recommender_text(text_input):
     
 
     # mean Embeddings for User Input
-    user_mean_vector =np.mean([phrases_model.wv[user_text] for user_text in user_input if user_text in phrases_model.wv] or [np.zeros(200)], axis=0)
+    user_mean_vector =np.mean([phrases_model.wv[user_text] for user_text in user_input if user_text in phrases_model.wv] or [np.zeros(300)], axis=0)
 
 
 
@@ -476,7 +476,7 @@ def recommender_text(text_input):
     else:
 
         # mean ingredient vectors for each recipe
-        text_vectors = [np.mean([phrases_model.wv[sub_text] for sub_text in text if sub_text in phrases_model.wv] or [np.zeros(200)], axis=0) for text in text_data_cleaned]
+        text_vectors = [np.mean([phrases_model.wv[sub_text] for sub_text in text if sub_text in phrases_model.wv] or [np.zeros(300)], axis=0) for text in text_data_cleaned]
 
 
 
