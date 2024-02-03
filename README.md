@@ -10,19 +10,19 @@ Project Overview
 
 Problem Area  
 
-    With the vast majority of the people being non-vegans, most of the recipe content found on different channels/sites is not vegan-friendly. Hence vegans usually struggle to find recipes tailored to their liking and often end up needing to find substitutes to prepare food on their own with no proper following, which is not a convenient solution when they need a quick preparation.
+With the vast majority of the people being non-vegans, most of the recipe content found on different channels/sites is not vegan-friendly. Hence vegans usually struggle to find recipes tailored to their liking and often end up needing to find substitutes to prepare food on their own with no proper following, which is not a convenient solution when they need a quick preparation.
 
-    More importantly, with everyone seeking easy getaway solutions, people need a quick solution to a recipe when they plan to prepare food. 
+More importantly, with everyone seeking easy getaway solutions, people need a quick solution to a recipe when they plan to prepare food. 
 
-    So the project will focus on delivering 2 solutions;  
+So the project will focus on delivering 2 solutions;  
 
-        1. Recommending  a recipe  (Vegan data can be filtered out as well)
-                - Based on the ingredients you have on hand or you need to be included in the recipe 
-                - Based on keywords such as the cuisine, type of recipe etc. 
-                - Based on both keywords & ingredients combined
-        2. Predict the rating for the recipe 
+    1. Recommending  a recipe  (Vegan data can be filtered out as well)
+            - Based on the ingredients you have on hand or you need to be included in the recipe 
+            - Based on keywords such as the cuisine, type of recipe etc. 
+            - Based on both keywords & ingredients combined
+    2. Predict the rating for the recipe 
 
-    **My original scope was to only give vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
+**My original scope was to only give vegan recommendations, but with the dataset changing,  I was able to widen the scope for generic plus vegan recipes. 
 
 Data Science Approach
 
