@@ -1,4 +1,4 @@
-# Readme
+# Flavor Fuze Recipe Recommender System using NLP
 
 **Project consists of below**
 
